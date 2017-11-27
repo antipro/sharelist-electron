@@ -53,6 +53,13 @@ function createWindow () {
   const iconPath = path.join(__dirname, 'www/static/tray.png')
   tray = new Tray(iconPath)
   tray.setToolTip('Sharelist')
+  const contextMenu = Menu.buildFromTemplate([{
+    label: '退出',
+    click: function () {
+      app.quit()
+    }
+  }])
+  tray.setContextMenu(contextMenu)
   tray.on('click', () => {
     if (mainWindow.isMinimized()) {
       mainWindow.unmaximize()
