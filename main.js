@@ -1,8 +1,18 @@
 const electron = require('electron')
+const {Menu, MenuItem} = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
+
+const menu = new Menu()
+
+menu.append(new MenuItem({
+  label: 'DevTool',
+  accelerator: 'F12',
+  click: () => { mainWindow.webContents.openDevTools() }
+}))
+Menu.setApplicationMenu(menu)
 
 const path = require('path')
 const url = require('url')
