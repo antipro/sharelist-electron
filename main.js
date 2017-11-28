@@ -1,4 +1,5 @@
 const electron = require('electron')
+const settings = require('electron-settings')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -15,13 +16,19 @@ menu.append(new MenuItem({
 }))
 Menu.setApplicationMenu(menu)
 
+const ipc = electron.ipcMain
+
+ipc.on('preference-message', function (event, ref) {
+  settings.set('ref', ref)
+  event.sender.send('preference-reply')
+})
+
 const path = require('path')
 const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow, tray
-
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -29,6 +36,7 @@ function createWindow () {
     height: 600,
     transparent: true,
     frame: false,
+    show: !settings.get('ref.starup_hidden'),
     icon: path.join(__dirname, 'www/static/tray.png')
   })
 
@@ -36,6 +44,8 @@ function createWindow () {
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'www/index.html'),
     protocol: 'file:',
+    // pathname: 'localhost:8080',
+    // protocol: 'http:',
     slashes: true
   }))
 
@@ -61,10 +71,10 @@ function createWindow () {
   }])
   tray.setContextMenu(contextMenu)
   tray.on('click', () => {
-    if (mainWindow.isMinimized()) {
-      mainWindow.unmaximize()
+    if (mainWindow.isVisible()) {
+      mainWindow.hide()
     } else {
-      mainWindow.minimize()
+      mainWindow.show()
     }
   })
 }
