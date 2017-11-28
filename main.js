@@ -30,6 +30,11 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow, tray
 function createWindow () {
+  if (settings.get('ref') === undefined) {
+    settings.set('ref', {
+      starup_hidden: false
+    })
+  }
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
