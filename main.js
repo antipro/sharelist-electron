@@ -22,6 +22,15 @@ ipc.on('preference-message', function (event, ref) {
   settings.set('ref', ref)
   event.sender.send('preference-reply')
 })
+ipc.on('preference-get-message', function (event) {
+  let ref = settings.get('ref')
+  if (ref === undefined) {
+    ref = {
+      starup_hidden: false
+    }
+  }
+  event.sender.send('preference-get-reply', ref)
+})
 
 const path = require('path')
 const url = require('url')
