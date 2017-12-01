@@ -48,6 +48,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    minWidth: 400,
+    minHeight: 600,
     transparent: true,
     frame: false,
     show: !settings.get('ref.starup_hidden'),
