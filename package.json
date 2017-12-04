@@ -23,6 +23,8 @@
     "electron-settings": "^3.1.4"
   },
   "devDependencies": {
-    "electron": "^1.7.9"
+    "electron": "^1.7.9",
+    "electron-installer-debian": "^0.7.1",
+    "electron-packager": "^10.1.0"
   }
 }
