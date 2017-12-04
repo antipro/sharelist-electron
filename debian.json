@@ -1,0 +1,14 @@
+{
+  "src": "dist/sharelist-linux-x64/",
+  "dest": "dist/",
+  "icon": "www/static/tray.png",
+  "categories": [
+    "Utility"
+  ],
+  "arch": "amd64",
+  "productName": "Sharelist",
+  "size": 307200,
+  "lintianOverrides": [
+    "changelog-file-missing-in-native-package"
+  ]
+}

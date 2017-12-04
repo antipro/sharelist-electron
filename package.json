@@ -1,21 +1,28 @@
 {
   "name": "sharelist",
-  "version": "1.0.0",
-  "description": "Sharelist Electron application",
+  "version": "1.0.1",
+  "revision": "1",
+  "description": "Control your projects and tasks, and share them.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
+    "win32": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
+    "deb64": "electron-installer-debian --config debian.json"
   },
   "keywords": [
     "Electron",
     "sharelist"
   ],
-  "author": "antipro@163.com",
+  "author": {
+    "name": "antipro",
+    "email": "antipro@163.com"
+  },
   "license": "ISC",
   "dependencies": {
     "electron-settings": "^3.1.4"
   },
   "devDependencies": {
-    "electron-packager": "^10.1.0"
+    "electron": "^1.7.9"
   }
 }
