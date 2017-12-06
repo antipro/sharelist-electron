@@ -80,7 +80,7 @@ function createWindow () {
   tray = new Tray(iconPath)
   tray.setToolTip('Sharelist')
   const contextMenu = Menu.buildFromTemplate([{
-    label: '退出',
+    label: 'Exit',
     click: function () {
       app.quit()
     }
