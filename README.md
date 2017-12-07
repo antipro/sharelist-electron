@@ -22,5 +22,8 @@ npm install electron
 # install dependencies
 npm install
 
+# make a 'www' soft link to dist folder of sharelist-client
+ln -s <path to sharelist-client/dist> www
+
 # run electron
 npm start
