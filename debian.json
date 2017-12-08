@@ -3,7 +3,7 @@
   "dest": "dist/",
   "icon": "www/static/tray.png",
   "categories": [
-    "Utility"
+    "Office", "Utility"
   ],
   "arch": "amd64",
   "productName": "Sharelist",
