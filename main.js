@@ -32,43 +32,6 @@ ipc.on('preference-get-message', function (event) {
   event.sender.send('preference-get-reply', ref)
 })
 
-const translation = {
-  'en': {
-    'exit': 'Exit',
-    'app_name': 'Sharelist'
-  },
-  'zh-CN': {
-    'exit': '退出',
-    'app_name': '共享清单'
-  }
-}
-var language = 'en'
-ipc.on('language', function (event, lang) {
-  if (translation[lang]) {
-    language = lang
-  } else {
-    language = 'en'
-  }
-
-  const iconPath = path.join(__dirname, 'www/static/tray.png')
-  tray = new Tray(iconPath)
-  tray.setToolTip(translation[language].app_name)
-  const contextMenu = Menu.buildFromTemplate([{
-    label: translation[language].exit,
-    click: function () {
-      app.quit()
-    }
-  }])
-  tray.setContextMenu(contextMenu)
-  tray.on('click', () => {
-    if (mainWindow.isVisible()) {
-      mainWindow.hide()
-    } else {
-      mainWindow.show()
-    }
-  })
-})
-
 const path = require('path')
 const url = require('url')
 
@@ -111,6 +74,16 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
+  })
+
+  const iconPath = path.join(__dirname, 'www/static/tray.png')
+  tray = new Tray(iconPath)
+  tray.on('click', () => {
+    if (mainWindow.isVisible()) {
+      mainWindow.hide()
+    } else {
+      mainWindow.show()
+    }
   })
 
 }
