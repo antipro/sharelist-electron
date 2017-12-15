@@ -8,7 +8,6 @@ const Menu = electron.Menu
 const MenuItem = electron.MenuItem
 const menu = new Menu()
 const Tray = electron.Tray
-console.log(process.env)
 
 menu.append(new MenuItem({
   label: 'DevTool',
