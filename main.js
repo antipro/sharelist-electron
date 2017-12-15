@@ -8,6 +8,7 @@ const Menu = electron.Menu
 const MenuItem = electron.MenuItem
 const menu = new Menu()
 const Tray = electron.Tray
+console.log(process.env)
 
 menu.append(new MenuItem({
   label: 'DevTool',
@@ -56,14 +57,22 @@ function createWindow () {
     icon: path.join(__dirname, 'www/static/tray.png')
   })
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'www/index.html'),
-    protocol: 'file:',
-    // pathname: 'localhost:8080',
-    // protocol: 'http:',
-    slashes: true
-  }))
+  const isDev = require('electron-is-dev');
+
+  if (isDev) {
+    mainWindow.loadURL(url.format({
+      pathname: 'localhost:8080',
+      protocol: 'http:',
+      slashes: true
+    }))
+  } else {
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, 'www/index.html'),
+      protocol: 'file:',
+      slashes: true
+    }))
+  }
+  
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
