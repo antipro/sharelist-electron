@@ -27,3 +27,9 @@ ln -s <path to sharelist-client/dist> www
 
 # run electron
 npm start
+```
+
+## Preview
+### Desktop(Deepin Linux)
+
+![Desktop](http://onmdsye1w.bkt.clouddn.com/sharelist-electron.png)
