@@ -1,0 +1,12 @@
+[Desktop Entry]
+<% if (productName) { %>Name=<%= productName %>
+Name[zh_CN]=分享清单
+<% } %><% if (description) { %>Comment=<%= description %>
+<% } %><% if (genericName) { %>GenericName=<%= genericName %>
+<% } %><% if (name) { %>Exec=<%= name %> %U
+<% } %><% if (name) { %>Icon=<%= name %>
+<% } %>Type=Application
+StartupNotify=true
+<% if (categories && categories.length) { %>Categories=<%= categories.join(';') %>;
+<% } %><% if (mimeType && mimeType.length) { %>MimeType=<%= mimeType.join(';') %>;
+<% } %>

@@ -10,5 +10,6 @@
   "size": 307200,
   "lintianOverrides": [
     "changelog-file-missing-in-native-package"
-  ]
+  ],
+  "desktopTemplate": "res/desktop.ejs"
 }
