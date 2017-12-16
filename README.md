@@ -29,15 +29,16 @@ npm install
 # make a 'www' soft link to dist folder of sharelist-client
 ln -s <path to sharelist-client/dist> www
 
-# run electron in dev mode
+# run electron in dev mode(load localhost:8080 default)
 npm start
 
-# build electron linux package
+# build electron linux package in dist folder(load local www folder default)
 npm run linux
 
-# generate deb package
+# generate deb package in dist folder
 npm run deb64
 ```
+Maybe someone can help me add linux and mac package :)
 
 ## Preview
 ### Desktop(Deepin Linux)
