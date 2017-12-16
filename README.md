@@ -38,7 +38,7 @@ npm run linux
 # generate deb package in dist folder
 npm run deb64
 ```
-Maybe someone can help me add windows and mac package :)
+Maybe someone can help me to add windows and mac package :)
 
 ## Preview
 ### Desktop(Deepin Linux)
