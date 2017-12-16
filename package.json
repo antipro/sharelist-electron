@@ -7,7 +7,6 @@
   "scripts": {
     "start": "electron .",
     "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
-    "win32": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
     "deb64": "electron-installer-debian --config debian.json"
   },
   "keywords": [

@@ -13,6 +13,10 @@
 * [sharelist-cordova](https://gitee.com/antipro/sharelist-cordova)
   > cordova wrapper
 
+## Preparation
+
+build or start client program according to guide of [sharelist-client](https://gitee.com/antipro/sharelist-client)
+
 ## Build Setup
 
 ``` bash
@@ -25,8 +29,14 @@ npm install
 # make a 'www' soft link to dist folder of sharelist-client
 ln -s <path to sharelist-client/dist> www
 
-# run electron
+# run electron in dev mode
 npm start
+
+# build electron linux package
+npm run linux
+
+# generate deb package
+npm run deb64
 ```
 
 ## Preview
