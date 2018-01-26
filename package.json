@@ -26,7 +26,6 @@
   "devDependencies": {
     "electron": "^1.7.9",
     "electron-installer-debian": "^0.7.1",
-    "electron-installer-windows": "^0.2.0",
     "electron-packager": "^10.1.0"
   }
 }
