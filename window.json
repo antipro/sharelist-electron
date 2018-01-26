@@ -1,0 +1,8 @@
+{
+  "src": "dist/sharelist-win32-x64/",
+  "dest": "dist/",
+  "tags": [
+    "Utility"
+  ],
+  "productName": "Sharelist"
+}
