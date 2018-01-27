@@ -1,5 +1,6 @@
 {
   "name": "sharelist",
+  "displayName": "Sharelist",
   "version": "1.0.1",
   "revision": "2",
   "description": "Control your projects and tasks, and share them.",
