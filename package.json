@@ -18,7 +18,7 @@
     "name": "antipro",
     "email": "antipro@163.com"
   },
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "electron-is-dev": "^0.3.0",
     "electron-settings": "^3.1.4"
