@@ -43,4 +43,4 @@ Maybe someone can help me to add windows and mac package :)
 ## Preview
 ### Desktop(Deepin Linux)
 
-![Desktop](http://onmdsye1w.bkt.clouddn.com/sharelist-electron.png)
+![Desktop](http://onmdsye1w.bkt.clouddn.com/sharelist-electron2.png)
