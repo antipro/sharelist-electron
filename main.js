@@ -1,6 +1,8 @@
 const electron = require('electron')
 const settings = require('electron-settings')
 const electronLocalshortcut = require('electron-localshortcut')
+const i18n = require('./locale.js')
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -12,6 +14,10 @@ const ipc = electron.ipcMain
 ipc.on('preference-message', function (event, ref) {
   settings.set('ref', ref)
   event.sender.send('preference-reply')
+})
+ipc.on('locale-message', function (event, locale) {
+  settings.set('locale', locale)
+  event.sender.send('locale-reply')
 })
 ipc.on('preference-get-message', function (event) {
   let ref = settings.get('ref')
@@ -72,6 +78,19 @@ function createWindow () {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+
+  mainWindow.on('close', function (e) {
+    let locale = settings.get('locale')
+    var choice = require('electron').dialog.showMessageBox(this, {
+      type: 'none',
+      buttons: [i18n(locale, 'yes'), i18n(locale, 'no')],
+      title: '',
+      message: i18n(locale, 'confirm_to_exit')
+    })
+    if(choice === 1){
+      e.preventDefault()
+    }
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
