@@ -9,8 +9,7 @@
     "start": "electron .",
     "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
     "windows": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
-    "deb64": "electron-installer-debian --config res/debian.json",
-    "win64": "electron-installer-windows --config res/windows.json"
+    "deb64": "electron-installer-debian --config res/debian.json"
   },
   "keywords": [
     "Electron",
