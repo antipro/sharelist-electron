@@ -41,7 +41,6 @@ function createWindow () {
     height: 600,
     minWidth: 400,
     minHeight: 600,
-    transparent: true,
     title: '',
     frame: true,
     show: !settings.get('ref.starup_hidden'),

@@ -19,10 +19,10 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf64}\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=.\sharelist-win32-x64\resources\app\LICENSE
-OutputDir=.
+LicenseFile=..\dist\sharelist-win32-x64\resources\app\LICENSE
+OutputDir=..\dist
 OutputBaseFilename=sharelist
-SetupIconFile=.\sharelist-win32-x64\resources\app\www\static\tray.ico
+SetupIconFile=..\dist\sharelist-win32-x64\resources\app\www\static\tray.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -33,19 +33,22 @@ Name: "chinese"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 [CustomMessages]
 english.MyAppName=Sharelist
 english.MyAppVerName=Sharelist
-chinese.MyAppName=分享清单
-chinese.MyAppVerName=分享清单
-chinese.LaunchProgram=运行分享清单
+english.Uninstall=Uninstall Sharelist
+chinese.MyAppName=鍒嗕韩娓呭崟
+chinese.MyAppVerName=鍒嗕韩娓呭崟
+chinese.LaunchProgram=杩愯鍒嗕韩娓呭崟
+chinese.Uninstall=鍗歌浇 鍒嗕韩娓呭崟
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: ".\sharelist-win32-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\dist\sharelist-win32-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
 Name: "{commonprograms}\{cm:MyAppName}\{cm:MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\resources\app\www\static\tray.ico"
+Name: "{commonprograms}\{cm:MyAppName}\{cm:Uninstall}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\{cm:MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\resources\app\www\static\tray.ico"; Tasks: desktopicon
 
 [Run]
