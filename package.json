@@ -1,8 +1,8 @@
 {
   "name": "sharelist",
   "displayName": "Sharelist",
-  "version": "1.0.2",
-  "revision": "2",
+  "version": "1.0.3",
+  "revision": "1",
   "description": "Control your projects and tasks, and share them.",
   "main": "main.js",
   "scripts": {
