@@ -1,20 +1,11 @@
 const electron = require('electron')
 const settings = require('electron-settings')
+const electronLocalshortcut = require('electron-localshortcut')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
-const Menu = electron.Menu
-const MenuItem = electron.MenuItem
-const menu = new Menu()
 const Tray = electron.Tray
-
-menu.append(new MenuItem({
-  label: 'DevTool',
-  accelerator: 'F12',
-  click: () => { mainWindow.webContents.openDevTools() }
-}))
-Menu.setApplicationMenu(menu)
 
 const ipc = electron.ipcMain
 
@@ -51,9 +42,16 @@ function createWindow () {
     minWidth: 400,
     minHeight: 600,
     transparent: true,
-    frame: false,
+    title: '',
+    frame: true,
     show: !settings.get('ref.starup_hidden'),
     icon: path.join(__dirname, 'www/static/tray.png')
+  })
+
+  mainWindow.setMenu(null)
+
+  electronLocalshortcut.register(mainWindow, 'F12', () => {
+    mainWindow.webContents.openDevTools()
   })
 
   const isDev = require('electron-is-dev');
