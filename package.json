@@ -9,7 +9,8 @@
     "start": "electron .",
     "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
     "windows": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=/.gitignore --electron-version=1.7.9 --overwrite",
-    "deb64": "electron-installer-debian --config debian.json"
+    "deb64": "electron-installer-debian --config res/debian.json",
+    "win64": "electron-installer-windows --config res/windows.json"
   },
   "keywords": [
     "Electron",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "electron": "^1.7.9",
     "electron-installer-debian": "^0.7.1",
+    "electron-installer-windows": "^0.2.0",
     "electron-packager": "^10.1.0"
   }
 }
