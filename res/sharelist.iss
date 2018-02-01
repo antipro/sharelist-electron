@@ -34,10 +34,10 @@ Name: "chinese"; MessagesFile: "compiler:Languages\ChineseSimplified.isl"
 english.MyAppName=Sharelist
 english.MyAppVerName=Sharelist
 english.Uninstall=Uninstall Sharelist
-chinese.MyAppName=鍒嗕韩娓呭崟
-chinese.MyAppVerName=鍒嗕韩娓呭崟
-chinese.LaunchProgram=杩愯鍒嗕韩娓呭崟
-chinese.Uninstall=鍗歌浇 鍒嗕韩娓呭崟
+chinese.MyAppName=分享清单
+chinese.MyAppVerName=分享清单
+chinese.LaunchProgram=运行分享清单
+chinese.Uninstall=卸载 分享清单
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
