@@ -3,7 +3,7 @@
   "displayName": "Sharelist",
   "version": "1.0.3",
   "revision": "4",
-  "description": "Control your projects and tasks, and share them.",
+  "description": "A todo list application with sharing mechanism via email.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
