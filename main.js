@@ -15,6 +15,7 @@ ipc.on('preference-message', function (event, ref) {
   settings.set('ref', ref)
   event.sender.send('preference-reply')
 })
+
 ipc.on('locale-message', function (event, locale) {
   settings.set('locale', locale)
   event.sender.send('locale-reply')
@@ -74,7 +75,6 @@ function createWindow () {
       slashes: true
     }))
   }
-  
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -85,9 +85,10 @@ function createWindow () {
       type: 'none',
       buttons: [i18n(locale, 'yes'), i18n(locale, 'no')],
       title: '',
-      message: i18n(locale, 'confirm_to_exit')
+      message: i18n(locale, 'confirm_to_exit'),
+      cancelId: 1
     })
-    if(choice === 1){
+    if (choice === 1) {
       e.preventDefault()
     }
   })
@@ -134,6 +135,8 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
+require('./update.js')
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
