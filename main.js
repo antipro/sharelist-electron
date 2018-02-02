@@ -83,12 +83,12 @@ function createWindow () {
     let locale = settings.get('locale')
     var choice = require('electron').dialog.showMessageBox(this, {
       type: 'none',
-      buttons: [i18n(locale, 'yes'), i18n(locale, 'no')],
+      buttons: [ i18n(locale, 'no'), i18n(locale, 'yes') ],
       title: '',
       message: i18n(locale, 'confirm_to_exit'),
-      cancelId: 1
+      cancelId: 0
     })
-    if (choice === 1) {
+    if (choice === 0) {
       e.preventDefault()
     }
   })

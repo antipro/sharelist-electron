@@ -22,12 +22,12 @@ function compareVersion (latestVersion) {
     }
     var choice = require('electron').dialog.showMessageBox({
       type: 'none',
-      buttons: [i18n(locale, 'yes'), i18n(locale, 'no')],
+      buttons: [ i18n(locale, 'no'), i18n(locale, 'yes') ],
       title: '',
       message: i18n(locale, 'update_existed'),
-      cancelId: 1
+      cancelId: 0
     })
-    if (choice === 0) {
+    if (choice === 1) {
       let packageName = 'sharelist_' + latestVersion.split('-')[0] + '_amd64.deb'
       let isWin = /^win/.test(process.platform)
       if (isWin) {
