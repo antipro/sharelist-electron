@@ -8,12 +8,33 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 const Tray = electron.Tray
+let mainWindow, tray
+
+function setShortcut (oldShortcut, newShortcut) {
+  electron.globalShortcut.unregister('CmdOrCtrl+Alt+Shift+' + oldShortcut)
+  electron.globalShortcut.register('CmdOrCtrl+Alt+Shift+' + newShortcut, () => {
+    if (mainWindow.isVisible()) {
+      mainWindow.hide()
+    } else {
+      mainWindow.show()
+    }
+  })
+}
 
 const ipc = electron.ipcMain
 
 ipc.on('preference-message', function (event, ref) {
+  let oldShortcut = settings.get('ref').shortcut || 'S'
   settings.set('ref', ref)
-  event.sender.send('preference-reply')
+  setShortcut(oldShortcut, ref.shortcut)
+
+  let locale = settings.get('locale')
+  electron.dialog.showMessageBox(mainWindow, {
+    type: 'none',
+    buttons: [ i18n(locale, 'yes') ],
+    title: '',
+    message: i18n(locale, 'preference_saved')
+  })
 })
 
 ipc.on('locale-message', function (event, locale) {
@@ -24,7 +45,8 @@ ipc.on('preference-get-message', function (event) {
   let ref = settings.get('ref')
   if (ref === undefined) {
     ref = {
-      starup_hidden: false
+      starup_hidden: false,
+      shortcut: 'S'
     }
   }
   event.sender.send('preference-get-reply', ref)
@@ -35,13 +57,15 @@ const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow, tray
+
 function createWindow () {
   if (settings.get('ref') === undefined) {
     settings.set('ref', {
-      starup_hidden: false
+      starup_hidden: false,
+      shortcut: 'S'
     })
   }
+  
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -56,6 +80,13 @@ function createWindow () {
 
   mainWindow.setMenu(null)
 
+  electron.globalShortcut.register('CmdOrCtrl+Alt+Shift+' + (settings.get('ref').shortcut || 'S'), () => {
+    if (mainWindow.isVisible()) {
+      mainWindow.hide()
+    } else {
+      mainWindow.show()
+    }
+  })
   electronLocalshortcut.register(mainWindow, 'F12', () => {
     mainWindow.webContents.openDevTools()
   })
@@ -81,7 +112,7 @@ function createWindow () {
 
   mainWindow.on('close', function (e) {
     let locale = settings.get('locale')
-    var choice = require('electron').dialog.showMessageBox(this, {
+    var choice = electron.dialog.showMessageBox(this, {
       type: 'none',
       buttons: [ i18n(locale, 'no'), i18n(locale, 'yes') ],
       title: '',
