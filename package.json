@@ -9,6 +9,7 @@
     "start": "electron .",
     "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=1.7.9 --overwrite",
     "windows": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=1.7.9 --overwrite",
+    "osx": "electron-packager . sharelist --platform darwin --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=1.7.9 --overwrite",
     "deb64": "electron-installer-debian --config res/debian.json"
   },
   "keywords": [
