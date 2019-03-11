@@ -33,14 +33,14 @@ function compareVersion (latestVersion) {
       if (isWin) {
         packageName = 'sharelist_' + latestVersion.split('-')[0] + '_x64.exe'
       }
-      shell.openExternal('http://antipro.gitee.io/sharelist/releases/' + packageName)
+      shell.openExternal('https://antipro.gitee.io/sharelist/releases/' + packageName)
     }
   })
 }
 
-var http = require('http')
+var https = require('https')
 
-http.get('http://antipro.gitee.io/sharelist/releases/version', (req, res) => {
+https.get('https://antipro.gitee.io/sharelist/releases/version', (req, res) => {
   let latestVersion = ''
   req.on('data', function (data) {
     latestVersion += data
