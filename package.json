@@ -7,9 +7,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=10.1.3 --overwrite",
-    "windows": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=10.1.3 --overwrite",
-    "osx": "electron-packager . sharelist --platform darwin --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=10.1.3 --overwrite --icon=../sharelist-client/static/tray.icns",
+    "linux": "electron-packager . sharelist --platform linux --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=18.0.1 --overwrite",
+    "windows": "electron-packager . sharelist --platform win32 --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=18.0.1 --overwrite",
+    "osx": "electron-packager . sharelist --platform darwin --arch=x64 --out dist --ignore=\"res\" --ignore=\"\\.gitignore\" --ignore=\".+js\\.map\" --electron-version=18.0.1 --overwrite --icon=../sharelist-client/static/tray.icns",
     "deb64": "electron-installer-debian --config res/debian.json",
     "dmg": "electron-installer-dmg --icon=../sharelist-client/static/tray.icns --overwrite dist/sharelist-darwin-x64/sharelist.app --out=dist sharelist"
   },
