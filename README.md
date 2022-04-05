@@ -33,10 +33,13 @@ ln -s <path to sharelist-client/dist> www
 npm start
 
 # build electron linux package in dist folder(load local www folder default)
+## for linux
 npm run linux
-
-# generate deb package in dist folder
 npm run deb64
+
+## for macos
+npm run osx
+npm run dmg
 ```
 Maybe someone can help me to add windows and mac package :)
 

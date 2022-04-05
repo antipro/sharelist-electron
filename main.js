@@ -74,10 +74,13 @@ function createWindow () {
     minHeight: 600,
     title: '',
     frame: true,
+    webPreferences: {
+      webSecurity: false,
+      allowRunningInsecureContent: true
+    },
     show: !settings.get('ref.starup_hidden'),
     icon: path.join(__dirname, 'www/static/tray.png')
   })
-
   mainWindow.setMenu(null)
 
   electron.globalShortcut.register('CmdOrCtrl+Alt+Shift+' + (settings.get('ref').shortcut || 'S'), () => {
@@ -112,7 +115,7 @@ function createWindow () {
 
   mainWindow.on('close', function (e) {
     let locale = settings.get('locale')
-    var choice = electron.dialog.showMessageBox(this, {
+    var choice = electron.dialog.showMessageBoxSync(this, {
       type: 'none',
       buttons: [ i18n(locale, 'no'), i18n(locale, 'yes') ],
       title: '',
