@@ -40,7 +40,7 @@ function compareVersion (latestVersion) {
 
 var https = require('https')
 
-https.get('https://antipro.gitee.io/sharelist/releases/version', (req, res) => {
+https.get('https://sharelist.bitifyware.com/releases/version', (req, res) => {
   let latestVersion = ''
   req.on('data', function (data) {
     latestVersion += data
@@ -48,4 +48,7 @@ https.get('https://antipro.gitee.io/sharelist/releases/version', (req, res) => {
   req.on('end', function () {
     compareVersion(latestVersion)
   })
+}).on('error', function (err) {
+  console.error('Failed to fetch latest version:', err.message)
+  // Optionally, show a dialog or notification to the user here
 })
