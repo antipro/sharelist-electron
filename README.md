@@ -6,16 +6,16 @@
 
 ## Related Project
 
-* [sharelist-client](https://gitee.com/antipro/sharelist-client)
+* [sharelist-client](https://github.com/antipro/sharelist-client)
   > client program
-* [sharelist-server](https://gitee.com/antipro/sharelist-server)
+* [sharelist-server](https://github.com/antipro/sharelist-server)
   > server-side program
-* [sharelist-cordova](https://gitee.com/antipro/sharelist-cordova)
+* [sharelist-cordova](https://github.com/antipro/sharelist-cordova)
   > cordova wrapper
 
 ## Preparation
 
-build or start client program according to guide of [sharelist-client](https://gitee.com/antipro/sharelist-client)
+build or start client program according to guide of [sharelist-client](https://github.com/antipro/sharelist-client)
 
 ## Build Setup
 
