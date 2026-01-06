@@ -33,6 +33,20 @@ ln -s <path to sharelist-client/dist> www
 npm start
 
 # build electron linux package in dist folder(load local www folder default)
+# prerequirement
+npm install -g electron-packager
+## for windows
+npm install -g electron-installer-windows
+## for linux deb
+npm install -g electron-installer-debian
+## for mac dmg
+npm install -g electron-installer-dmg
+
+## for windows
+npm run windows
+
+electron-installer-windows --src dist/sharelist-win32-x64/ --dest dist/installers/
+
 ## for linux
 npm run linux
 npm run deb64
